@@ -38,7 +38,7 @@ resource "kubernetes_service" "fiap_lanchonete_lb" {
 
   spec {
     selector = {
-      app = "fiap-lanchonete"
+      app = "fiap-lanchonete-pedido"
     }
     port {
       port        = 80
