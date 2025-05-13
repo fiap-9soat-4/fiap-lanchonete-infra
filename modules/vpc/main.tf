@@ -11,8 +11,8 @@ locals {
   name                    = basename(path.cwd)
   vpc_cidr                = "10.0.0.0/21"
   availability_zone_names = slice(data.aws_availability_zones.available.names, 0, 3)
-  private_subnet_names    = [for k, v in local.availability_zone_names : cidrsubnet(local.vpc_cidr, 8, k)]
-  public_subnet_names     = [for k, v in local.availability_zone_names : cidrsubnet(local.vpc_cidr, 8, k + 4)]
+  private_subnet_names    = [for k, v in local.availability_zone_names : cidrsubnet(local.vpc_cidr, 5, k)]
+  public_subnet_names     = [for k, v in local.availability_zone_names : cidrsubnet(local.vpc_cidr, 5, k + 4)]
   tags = {
     GithubRepo = "fiap-lanchonete-infra"
     GithubOrg  = "fiap-9soat-4"
